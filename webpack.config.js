@@ -15,7 +15,16 @@ function getRoot(args) {
 module.exports = function(env, argv) {
   return {
     mode: env.production ? 'production' : 'development',
-
+      devServer: {
+          compress: true,
+          port: 8083,
+          proxy: {
+              '/api': {
+                  target: 'http://localhost:3000',
+                  secure: false
+              }
+          }
+      },
     entry: {
       app: "./src/main.ts",
       polyfills: "./src/polyfills.ts"

@@ -1,0 +1,6 @@
+<mat-tab-group [selectedIndex] = "activeChat" (selectedIndexChange)="activateChatRoom($event)">
+    <mat-tab [label]="getChatRoomName(chatroom)" *ngFor="let chatroom of chatRooms">
+        <chatroom-component [data] = "chatroom"></chatroom-component>
+    </mat-tab>
+
+</mat-tab-group>

@@ -1,21 +1,32 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
-    <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-  </div>
-  <h2>Here are some links to help you start: </h2>
-  <ul>
-    <li>
-      <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-    </li>
-    <li>
-      <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-    </li>
-    <li>
-      <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-    </li>
-  </ul>
-  
-  
+<div class="body-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <h1 class="app-name">Chatting App</h1>
+    </mat-toolbar>
+
+<mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">>
+    <mat-sidenav [opened]="mobileQuery.matches ? false : true" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+            <mat-expansion-panel [expanded] = "panel.children" multi="true" *ngFor="let panel of config.panels">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{ panel.name }}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-panel-description>
+                    <mat-nav-list *ngIf="panel.children">
+                        <a (click)="startChat(item)" mat-list-item *ngFor="let item of panel.children">
+                            <mat-icon color="primary" *ngIf="item.active">chat_bubble</mat-icon>
+                            <mat-icon *ngIf="!item.active">chat_bubble_outline</mat-icon>
+                            <span>{{ item.firstName  + " " + (item.lastName ? item.lastName : "")}}</span>
+                        </a>
+                    </mat-nav-list>
+                </mat-panel-description>
+            </mat-expansion-panel>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <chathouse-component [events]="eventsSubject.asObservable()"></chathouse-component>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+</div>

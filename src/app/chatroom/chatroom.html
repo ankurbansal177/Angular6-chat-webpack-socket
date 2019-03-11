@@ -1,0 +1,19 @@
+<div>
+    <mat-list>
+        <mat-list-item *ngFor="let message of chat">
+            <img matListAvatar src="..." alt="...">
+            <h3 matLine> {{message.userId}} </h3>
+            <p matLine>
+                <span> {{message.content}} </span>
+            </p>
+        </mat-list-item>
+    </mat-list>
+    <form class="message-form">
+        <mat-form-field class="example-full-width">
+            <textarea (keyup.enter)="sendText(text)"  name = "messageType" [(ngModel)] = "text" matInput placeholder="Type Message Here"></textarea>
+            <button (click)="sendText(text)" mat-fab color="primary">
+                <mat-icon aria-label="Send">send</mat-icon>
+            </button>
+        </mat-form-field>
+    </form>
+</div>
