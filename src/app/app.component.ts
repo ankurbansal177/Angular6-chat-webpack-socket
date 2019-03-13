@@ -3,6 +3,7 @@ import {ChangeDetectorRef, Component, OnDestroy, Inject, OnInit} from "@angular/
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from "@angular/material";
 import {DataService} from "./Services/DataService";
 import {Subject} from "rxjs/index";
+import {ProfileComponent} from "./profile/profile.component";
 
 export interface DialogData{
     name: String;
@@ -38,7 +39,8 @@ export class AppComponent implements OnDestroy, OnInit{
     openDialog(): void {
         const dialogRef = this.dialog.open(DialogName, {
             width: '250px',
-            data: {name: this.name}
+            data: {name: this.name},
+            disableClose: true
         });
 
         dialogRef.afterClosed().subscribe(result => {
@@ -54,6 +56,16 @@ export class AppComponent implements OnDestroy, OnInit{
         if(item.active === true) {
             this.eventsSubject.next({userId: DataService.userId, targetUserId: item.id});
         }
+    }
+    openProfileDetails(): void{
+        const dialogRef  = this.dialog.open(ProfileComponent, {
+            width:'400px',
+            disableClose: true
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            console.log("Profile was viewed");
+
+        })
     }
     ngOnInit(){
         this.openDialog();

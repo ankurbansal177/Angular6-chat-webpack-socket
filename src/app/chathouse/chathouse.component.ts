@@ -36,6 +36,20 @@ export class ChathouseComponent implements OnInit{
             } else {
                 this.chatRooms.push(data);
             }
+        });
+
+        this.dataService.subscribeTo("chatRoomUpdated").subscribe(data => {
+            debugger;
+            var found = false;
+            this.chatRooms.forEach((room,i)=>{
+                if(room.id === data.id){
+                    found = true;
+                    this.chatRooms[i] = room;
+                }
+            });
+            if(!found){
+                this.chatRooms.push(data);
+            }
         })
     }
     checkIfRoomAlreadyExists(user1, user2){

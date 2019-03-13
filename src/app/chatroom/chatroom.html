@@ -1,8 +1,7 @@
 <div>
     <mat-list>
         <mat-list-item *ngFor="let message of chat">
-            <img matListAvatar src="..." alt="...">
-            <h3 matLine> {{message.userId}} </h3>
+            <h2 matLine> {{message.userName}} </h2>
             <p matLine>
                 <span> {{message.content}} </span>
             </p>

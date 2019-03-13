@@ -3,5 +3,6 @@ id: String,
 content: String,
 time: Number,
 userId: String,
-chatRoomId: String
+chatRoomId: String,
+userName: String
 }

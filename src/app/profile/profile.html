@@ -1,0 +1,27 @@
+<div>
+    <mat-form-field>
+        <p>First Name</p>
+        <input type="text" matInput  [ngModel]="user.firstName">
+    </mat-form-field>
+    <mat-form-field>
+        <p>Last Name</p>
+        <input type="text" matInput  [ngModel]="user.lastName">
+    </mat-form-field>
+    <div>
+        <p>Select Country</p>
+        <select [(ngModel)]="selectedCountry">
+            <!--<option *ngFor="let option of options" [value]="option.id">{{option.name}}</option>-->
+        </select>
+    </div>
+    <mat-form-field>
+        <p>Alpha2code</p>
+        <input type="text" matInput  [ngModel]="user.alpha2code" >
+    </mat-form-field>
+    <mat-form-field>
+        <p>PhoneNumber</p>
+        <input type="text" matInput [ngModel]="user.phoneNumber">
+    </mat-form-field>
+    <div mat-dialog-actions>
+        <button mat-button [mat-dialog-close] cdkFocusInitial>Save</button>
+    </div>
+</div>
