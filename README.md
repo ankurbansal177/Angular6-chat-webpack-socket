@@ -7,4 +7,4 @@ Angular 6 with Webpack 4 builder quickstart
 
  1. Clone repo
  2. npm install
- 3. npm serve
+ 3. npm run serve
