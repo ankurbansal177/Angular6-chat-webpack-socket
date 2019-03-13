@@ -1,6 +1,6 @@
 angular6-Chat
 =============================
-Angular 6 with Webpack 4 builder quickstart
+Angular 6 with Webpack 4 builder. You can find the backend here https://github.com/ankurbansal177/express-socket-chat and run that on port 3000.
 
 
 ## Getting Started
@@ -29,6 +29,23 @@ Angular 6 with Webpack 4 builder quickstart
     3. Chatroom: This contains {id ,name, userList, messageList} and is generic for group chats and one to one chats
                  userlist can be increased and decreased.
     4. Message: Message carries details of sender, chatRoomId, content and time 
+    
+   ### Frontend:
+   Following Services were created:
+   1. DataService: DataService had the socket initialization as a static member as we needed only one socket for one user.
+   and all the http calls and event firing was handled in Data Service. Observables were used for requests. A generic function for event subscription was used.
+   Following Components were created:
+   1. AppComponent
+   2. DialogName
+   3. ProfileComponent
+   4. ChatHouseComponent
+   5. ChatroomComponent
+   Following Interfaces were created
+   1. User
+   2. Chatroom
+   3. Message
+   4. Country
+   5. IdName
                  
  ## UI-Design
  Material components have been used across app.
