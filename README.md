@@ -16,7 +16,20 @@ Angular 6 with Webpack 4 builder quickstart
  Chatroom is a generic object for one to one and group chats.
  Profile component consists of User details which is mapped with user interface.
  
+ ## Backend tech
+ 1. Nodejs, express and socket.io have been used to create the backend
+ 2. There is no dedicated storage layer
+ 3. Storage is done in memory i.e. each class have static variables for created object list
  
+ ## Object Structure
+   ### Backend:
+    Following classes were created:
+    1. User: Holds all information of User and all created users till date.
+    2. Connection: This contains userId and socketId and the map is stored for emitting events to users
+    3. Chatroom: This contains {id ,name, userList, messageList} and is generic for group chats and one to one chats
+                 userlist can be increased and decreased.
+    4. Message: Message carries details of sender, chatRoomId, content and time 
+                 
  ## UI-Design
  Material components have been used across app.
  App is responsive
