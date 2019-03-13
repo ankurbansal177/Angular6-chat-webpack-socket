@@ -29,7 +29,7 @@ Angular 6 with Webpack 4 builder. You can find the backend here https://github.c
  ## Object Structure:
  
   ### Backend:
-    Following classes were created:
+    #### Following classes were created:
     1. User: Holds all information of User and all created users till date.
     2. Connection: This contains userId and socketId and the map is stored for emitting events to users
     3. Chatroom: This contains {id ,name, userList, messageList} and is generic for group chats and one to one chats
@@ -37,16 +37,16 @@ Angular 6 with Webpack 4 builder. You can find the backend here https://github.c
     4. Message: Message carries details of sender, chatRoomId, content and time.
     
    ### Frontend:
-   Following Services were created:
+   #### Following Services were created:
    1. DataService: DataService had the socket initialization as a static member as we needed only one socket for one user.
    and all the http calls and event firing was handled in Data Service. Observables were used for requests. A generic function for event subscription was used.
-   Following Components were created:
+   #### Following Components were created:
    1. AppComponent
    2. DialogName
    3. ProfileComponent
    4. ChatHouseComponent
    5. ChatroomComponent
-   Following Interfaces were created
+   #### Following Interfaces were created
    1. User
    2. Chatroom
    3. Message
