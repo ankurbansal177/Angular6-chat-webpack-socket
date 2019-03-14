@@ -95,9 +95,6 @@ module.exports = function(env, argv) {
       new CopyWebpackPlugin([
         {
           from: getRoot("src", "index.html"), to: getRoot("dist", "index.html")
-        },
-        { 
-          from: getRoot("src", "assets"), to: getRoot("dist", "assets") 
         }
        
       ]),
